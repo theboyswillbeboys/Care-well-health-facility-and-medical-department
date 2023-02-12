@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Patient Form</title>
+  </head>
+  <body>
+    <form id="patientForm">
+      <label for="firstName">First Name:</label>
+      <input type="text" id="firstName" name="firstName">
+      <br><br>
+      <label for="lastName">Last Name:</label>
+      <input type="text" id="lastName" name="lastName">
+      <br><br>
+      <label for="dob">Date of Birth:</label>
+      <input type="date" id="dob" name="dob">
+      <br><br>
+      <label for="gender">Gender:</label>
+      <input type="radio" id="male" name="gender" value="male">
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female">
+      <label for="female">Female</label>
+      <br><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <br><br>
+      <label for="phone">Phone:</label>
+      <input type="tel" id="phone" name="phone">
+      <br><br>
+      <label for="address">Address:</label>
+      <textarea id="address" name="address"></textarea>
+      <br><br>
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      function validateForm() {
+        var firstName = document.getElementById("firstName").value;
+        var lastName = document.getElementById("lastName").value;
+        var dob = document.getElementById("dob").value;
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+        var email = document.getElementById("email").value;
+        var phone = document.getElementById("phone").value;
+        var address = document.getElementById("address").value;
+        
+        if (firstName == "" || lastName == "" || dob == "" || gender == undefined ||
+            email == "" || phone == "" || address == "") {
+          alert("All fields are required!");
+          return false;
+        }
+        return true;
+      }
+      document.getElementById("patientForm").onsubmit = validateForm;
+    </script>
+  </body>
+</html>
